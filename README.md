@@ -1,3 +1,3 @@
 # ISDTCA2-Fire-Safety
 
-This is a project co-madd by Shane and Xianghao.
+This is a project co-made by Shane and Xianghao.
