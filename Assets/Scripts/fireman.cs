@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 using UnityEngine.UI;
+using UnityEngine.InputSystem.Processors;
 
 public class fireman : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class fireman : MonoBehaviour
     public DynamicMoveProvider moveComponent;
     public Image backgroundColorImage; 
     public bool isDead = false;
+    public Canvas gameOverCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +56,11 @@ public class fireman : MonoBehaviour
                 healthText.text = $"Health: {playerHealth:f0}";
             }
 
+        }
+
+        if (isDead)
+        {
+            gameOverCanvas.enabled = true;
         }
     }
 
