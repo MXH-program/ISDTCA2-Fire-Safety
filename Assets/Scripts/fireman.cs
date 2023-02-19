@@ -27,13 +27,14 @@ public class fireman : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // binding callback for Crouch Button press
         inptRef.action.performed += ToggleCrouch;
         isDead = false;
-        //inptRef.action.Enable();
     }
 
     private void OnDestroy()
     {
+        // unbinding callback for Crouch Button press
         inptRef.action.performed -= ToggleCrouch;
     }
 

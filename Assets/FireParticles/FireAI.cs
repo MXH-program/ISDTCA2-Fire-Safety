@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireAI : MonoBehaviour
 {
+    // public variables to show in unity engine editor when configuring the FireAI.
     public float health;
     public ParticleSystem MainFire;
     public ParticleSystem Spark;
@@ -48,6 +49,7 @@ public class FireAI : MonoBehaviour
         bool isWeak = IsWeakAgainst(exType);
         if (isWeak)
         {
+            // reduce Fire Health is correct extinguisher
             health -= damageAmount * Time.fixedDeltaTime;
             Debug.Log($"Health left: {health}");
 
@@ -75,6 +77,7 @@ public class FireAI : MonoBehaviour
         }
         else
         {
+            // Increase health of fire and play back the particles that are Stopped
             health += damageAmount;
             if (health >= 80)
             {

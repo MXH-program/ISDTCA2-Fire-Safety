@@ -57,6 +57,7 @@ public class FireExtinguisher : MonoBehaviour
     {
         if (isSpraying)
         {
+            // for each Fire AI, deal damage or add health if not correct weakness type
             FireAI ai = other.GetComponent<FireAI>();
             if (ai)
             {
@@ -73,10 +74,12 @@ public class FireExtinguisher : MonoBehaviour
         {
             if (Ammo > 0)
             {
+                // reduce ammo
                 Ammo -= SprayRate * Time.deltaTime;
             }
             else
             {
+                // stop spraying and stop the particles
                 isSpraying = false;
                 WaterSpray.Stop(false, ParticleSystemStopBehavior.StopEmitting);
             }
