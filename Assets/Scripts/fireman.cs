@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 using UnityEngine.UI;
 using UnityEngine.InputSystem.Processors;
+using UnityEngine.SceneManagement;
 
 public class fireman : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class fireman : MonoBehaviour
     public Image backgroundColorImage; 
     public bool isDead = false;
     public Canvas gameOverCanvas;
+    public Canvas winCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,7 @@ public class fireman : MonoBehaviour
             {
                 healthText.text = $"You are dead!";
                 isDead = true;
+                Invoke("RestartScene", 5f);
             }
             else
             {
@@ -83,6 +86,16 @@ public class fireman : MonoBehaviour
             Debug.Log($"Take Fumes damange HP Left: {playerHealth}");
             
         }
+
+        if (other.tag == "Finish")
+        {
+            winCanvas.enabled = true;
+        }
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
 
